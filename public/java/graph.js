@@ -62,7 +62,7 @@ function removeData(chart) {
 
 function xhrLoad() {
   let dbdata = JSON.parse(this.responseText).dbdata;
-  addData(myLineChart, dbdata[1].id, dbdata[1].temp);
+  addData(myLineChart, dbdata[0].id, dbdata[0].temp);
   
 }
 

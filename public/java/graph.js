@@ -1,15 +1,24 @@
+document.querySelector("button").addEventListener("click", formSubmit);
+function formSubmit() {
+  xhr = new XMLHttpRequest(); 
+        xhr.addEventListener("load", xhrLoad); 
+        xhr.open("GET", "data/getdata"); 
+        xhr.send();
+}
+
+
 var ctx = document.getElementById('myChart');
 var myLineChart = new Chart(ctx, {
     type: 'line',
   data: {
-    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    labels: [],
     datasets: [{ 
-        data: [86,114,106,106,107,111,133,221,783,2478],
+        data: [],
         label: "Målt",
         borderColor: "#3e95cd",
         fill: false
       },{ 
-        data: [60,110,120,126,137,115,133,121,283,1478],
+        data: [],
         label: "Teoretisk",
         borderColor: "#c0daeb",
         fill: false
@@ -49,4 +58,12 @@ function removeData(chart) {
   });
   chart.update();
 }
+
+
+function xhrLoad() {
+  let dbdata = JSON.parse(this.responseText).dbdata;
+  addData(myLineChart, dbdata.id, dbdata.temp);
+  
+}
+
 

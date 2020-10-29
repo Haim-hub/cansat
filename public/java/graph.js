@@ -29,13 +29,6 @@ var myLineChart = new Chart(ctx, {
   options: {
     legend: {
         display: false
-    },
-    scales: {
-      xAxes: [{
-        ticks: {
-            autoSkip: true,
-        }
-    }]
     }
   }
 });

@@ -1,0 +1,15 @@
+{
+    "name": "cansat-peng",
+    "version": "1.0.0",
+    "engines": {
+        "node": "12.x"
+    },
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "express": "^4.15.2",
+        "pg": "^8.3.3"
+    }
+}

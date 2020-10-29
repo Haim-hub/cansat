@@ -1,0 +1,177 @@
+/* This part has to do with the navigationbar and is clone from https://www.w3schools.com/css/tryit.asp?filename=trycss_navbar_horizontal_dividers */
+#navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 1em;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  #navbar>li {
+    float: left;
+    border-right:1px solid #bbb;
+  }
+  
+  #navbar>li:last-child {
+    border-right: none;
+  }
+  
+  #navbar>li a {
+    display: block;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    padding: 14px 103px;
+    text-decoration: none;
+  }
+
+  #navbar>li:last-child a{
+      padding: 14px 16px;
+  }
+
+  #navbar>li a:hover:not(.active) {
+    background-color: #111;
+  }
+  
+  .active {
+    background-color: #4CAF50;
+  }
+/* Navigationbar end here -----------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+/* This is for the list that shows the live values ----------------------------------------------------------------------------*/
+#livelist {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 20px;
+}
+#livelist>li{
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+}
+/* We use :nth-child(even) to make a noticeable between every second line so that the list is grouped with to lines together at a time */
+#livelist>li:nth-child(even){
+    padding-bottom: 16px;
+
+}
+/* Here ends the live list --------------------------------------------------------------------------------------------------- */
+
+
+
+/* The header in all of the boxes in the grid */
+.boxHeader{
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+
+}
+
+
+/* This part is the grid and is from a tutorial by Tarversy Media https://www.youtube.com/watch?v=jV8B24rSN5o ---------------- */
+.wrapper{
+    display:grid;
+    /* The grid is spilt en 2 columns with the first having the witdh 1/3 and the second having the witdh 2/3 */
+    grid-template-columns: 33% 66%;
+    grid-auto-rows: minmax(61px, 61px);
+    grid-gap:1em;
+    justify-items: stretch;
+    align-items: stretch;
+
+}
+.wrapper > div{
+    padding: 1em;
+}
+
+/* This box has the live values */
+.livebox{
+    background: repeating-linear-gradient(#333, #333 61px, rgb(238, 238, 238) 62px, rgb(238, 238, 238) 100%);
+    /* align-self: start; */
+    border-radius: 1em;
+    grid-column: 1;
+    grid-row: 2/5;
+}
+
+/* This box houses the graph */
+.graphbox{
+    background: repeating-linear-gradient(#333, #333 61px, rgb(238, 238, 238) 62px, rgb(238, 238, 238) 100%);
+    /* align-self: end; */
+    border-radius: 1em;
+    grid-column: 2;
+    grid-row: 1/11;
+}
+
+/* This box has the 3dmodel */
+.modelbox{
+    background: repeating-linear-gradient(#333, #333 61px, rgb(238, 238, 238) 62px, rgb(238, 238, 238) 100%);
+    /* justify-self: end; */
+    border-radius: 1em;
+    grid-column: 1;
+    grid-row: 5/11;
+}
+
+/* This removes the padding form the box with the startbutton since it is the 4th child */
+.wrapper > div:nth-child(4){
+    padding: 0em;
+}
+/* This is the box which has the startbutton on top of it */
+.startbox{
+    background: rgb(240, 174, 174);
+    border-radius: 1em;
+    grid-column: 1;
+    grid-row: 1;
+}
+.startbox:hover{
+    background:rgb(236, 154, 154);;
+}
+/* Here is the end of the styling for the boxes in the grid -------------------------------------------------------------------*/
+
+
+/* This is for the big start button */
+#startbut{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+}
+
+/* Styling for the graph container */
+.container{
+    width: 100%;
+}
+
+
+
+/* The div that houses the settings and legends for the graph */
+#settings{
+    padding-top: 60px;
+    padding-bottom: 50px;
+    width: 100%;
+}
+
+.legend{
+    width: 45px;
+    height: 18px;
+    border-width: 5px;
+    display: inline-block;
+    vertical-align: middle;
+    
+}
+#readLegend{
+    background-color: #3e95cd;
+    border-color: #052235;
+}
+
+#calLegend{
+    background-color: #c0daeb;
+    border-color: #052235;
+}

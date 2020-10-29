@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Lib for GraphJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+
+    <!-- JavaScript for the graph stuff-->
+    <script defer src="../java/graph.js"></script>
+
+    <title>CanSat</title>
+
+    <!-- This is the main staylesheet -->
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+
+<body>
+    <!-- This ul is for the navigatoinbar -->
+    <ul id="navbar">
+        <li>                        <a class="active">Live</a>     </li>
+        <li>                        <a href="historik.html">Historik</a>            </li>
+        <li style="float:right">    <a href="#dev_options">Dev Options</a>      </li>
+    </ul>
+
+    <!-- This whole div with the wrapper class is to make the grid and is from the tutorial https://www.youtube.com/watch?v=jV8B24rSN5o -->
+    <div class="wrapper">
+    <!-- Each box in the grid has a div with the class box ...  -->
+        <div class="box livebox">   
+            <a class="boxHeader"> Lige nu </a> 
+            <ul id="livelist">
+                <li> Temperatur: </li>
+                <li id="temptext">     none        </li>
+
+                <li> Højde:      </li>
+                <li id="heighttext">   none        </li>
+
+                <li> Tryk:       </li>
+                <li id="pressuretext"> none        </li>
+            </ul>
+
+        </div>
+
+        <div class="box graphbox">    
+            <a class="boxHeader"> Grafer  </a>
+
+            <div id="settings"> 
+                <a>x-aksen:  </a>
+                <select name="x-aksen" id="x-aksen">
+                    <option value="sekunder">Sekunder</option>
+                    <option value="minutter">Minutter</option>
+                    <option value="højde">Højde</option>
+                    <option value="tryk">Tryk</option>
+                </select>
+
+                <a>y-aksen:</a>
+                <select name="y-aksen" id="y-aksen">
+                    <option value="Temperatur">Temperatur</option>
+                    <option value="højde">Højde</option>
+                    <option value="tryk">Tryk</option>
+                </select>
+
+                <div style="float:right; padding-right: 10px; display: inline;">
+                    <div class="legend" id="readLegend"> </div> <a> Målt </a>
+
+                    <div class="legend"  id="calLegend" > </div> <a> Beregnet </a> 
+                </div>
+
+                </div>
+            
+            <!-- This is the container and canvas to implement the grapg from GraphJS -->
+            <div class="container">
+                <canvas id="myChart"></canvas>
+              </div>
+
+        </div>
+
+        <div class="box modelbox">
+            <a class="boxHeader"> Stillling i luften </a>   
+
+        </div>
+
+        <div class="box startbox" >
+            <button id="startbut" type="button" onclick="alert('Hello world!')"> Start måling </button>
+
+        </div>
+    </div>
+
+
+</body>
+</html>

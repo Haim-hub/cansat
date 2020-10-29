@@ -1,4 +1,4 @@
-document.querySelector("startbut").addEventListener("click", formSubmit);
+document.querySelector("startbut").addEventListener("click");
 function formSubmit() {
   xhr = new XMLHttpRequest(); 
         xhr.addEventListener("load", xhrLoad); 

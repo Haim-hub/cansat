@@ -5,7 +5,7 @@ connectionString: process.env.DATABASE_URL, ssl: {
     },
 });
 
-// Route /all
+// Route /getdata
 router.get("/getdata", async (req, res) => { try {
     // Wait for DB connection
 const client = await pool.connect(); // Run query

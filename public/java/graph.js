@@ -29,6 +29,13 @@ var myLineChart = new Chart(ctx, {
   options: {
     legend: {
         display: false
+    },
+    scales: {
+      xAxes: [{
+        ticks: {
+            autoSkip: true,
+        }
+    }]
     }
   }
 });
@@ -42,6 +49,7 @@ function addData(chart, label, data) {
   if(chart.data.datasets[0].data.length > 10){
     removeData(myLineChart);
   }
+  chart.update();
 }
 
 function removeData(chart) {

@@ -13,8 +13,8 @@ const client = await pool.connect(); // Run query
 const result = await client.query("SELECT * FROM cansat");
 
     // Respond with DB results as json
-if (result) res.json({salaries: result.rows}); 
-else res.json({salaries: null});
+if (result) res.json({dbdata: result.rows}); 
+else res.json({dbdata: null});
     // Release connection
 client.release();
 } catch (err) {

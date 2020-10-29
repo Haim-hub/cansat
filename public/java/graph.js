@@ -1,6 +1,6 @@
 document.querySelector("button").addEventListener("click", formSubmit);
 function formSubmit() {
-  xhr = new XMLHttpRequest(); 
+        xhr = new XMLHttpRequest(); 
         xhr.addEventListener("load", xhrLoad); 
         xhr.open("GET", "data/getdata"); 
         xhr.send();
@@ -62,6 +62,7 @@ function removeData(chart) {
 
 function xhrLoad() {
   let dbdata = JSON.parse(this.responseText).dbdata;
+  console.log(dbdata);
   addData(myLineChart, dbdata[0].id, dbdata[0].temp);
   
 }

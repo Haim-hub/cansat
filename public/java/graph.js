@@ -82,4 +82,5 @@ function changeAxis()
   alert("REEEE");
   myLineChart.data.dataset[0].hidden = true;
   myLineChart.data.dataset[1].hidden = false;
+  chart.update();
 }

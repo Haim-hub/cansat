@@ -30,10 +30,10 @@ router.get("/add", async (req, res) => { try {
 
     let temp = req.query.temp;
     let pressure = req.query.pressure;
-
+    let alt = temp*pressure;
     const SQL_query = {
         text: "INSERT INTO cansat (temp,pressure) VALUES ($1, $2, $3)", 
-        values: [temp, pressure, (temp*pressure)]
+        values: [temp, pressure, alt]
     };
 
     await client.query(SQL_query);

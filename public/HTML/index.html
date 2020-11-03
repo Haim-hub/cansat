@@ -47,25 +47,17 @@
             <a class="boxHeader"> Grafer  </a>
 
             <div id="settings"> 
-                <a>x-aksen:  </a>
-                <select name="x-aksen" id="x-aksen">
-                    <option value="sekunder">Sekunder</option>
-                    <option value="minutter">Minutter</option>
-                    <option value="højde">Højde</option>
-                    <option value="tryk">Tryk</option>
-                </select>
-
                 <a>y-aksen:</a>
-                <select name="y-aksen" id="y-aksen">
+                <select name="y-aksen" id="y-aksen" onchange="changeAxis()">
                     <option value="Temperatur">Temperatur</option>
                     <option value="højde">Højde</option>
                     <option value="tryk">Tryk</option>
                 </select>
 
                 <div style="float:right; padding-right: 10px; display: inline;">
-                    <div class="legend" id="readLegend"> </div> <a> Målt </a>
+                    <div class="legend" id="readLegend"> </div> <a> Temperatur </a>
 
-                    <div class="legend"  id="calLegend" > </div> <a> Beregnet </a> 
+                    <div class="legend"  id="calLegend" > </div> <a> Tryk </a> 
                 </div>
 
                 </div>

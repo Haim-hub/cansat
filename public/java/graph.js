@@ -76,3 +76,9 @@ function xhrLoad() {
 }
 
 
+function changeAxis()
+{
+  var x = document.getElementById("mySelect").value;
+  myLineChart.data.dataset[0].hidden = true;
+  myLineChart.data.dataset[1].hidden = false;
+}

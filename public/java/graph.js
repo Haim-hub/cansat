@@ -101,7 +101,7 @@ function changeAxis()
   }
   if(x === "højde")
   {
-    myLineChart.getDatasetMeta(0).hidden = true;
+    myLineChart.getDatasetMeta(0).hidden = false;
     myLineChart.getDatasetMeta(1).hidden = false;
     myLineChart.getDatasetMeta(2).hidden = true;
   }

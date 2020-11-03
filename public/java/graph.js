@@ -50,7 +50,7 @@ function addData(chart, label, temp, tryk) {
   chart.data.datasets[0].data.push(temp);
   chart.data.datasets[1].data.push(tryk);
   
-  if(chart.data.datasets[0].data.length > 10){
+  if(chart.data.datasets[0].data.length >= 10){
     removeData(myLineChart);
   }
   chart.update();
@@ -67,7 +67,8 @@ function removeData(chart) {
 
 function xhrLoad() {
   let dbdata = JSON.parse(this.responseText).dbdata;
-  for(let index = myLineChart.data.labels[myLineChart.data.labels.length-1]; index <= dbdata.length; index++) 
+  if(myLineChart.data.labels.length === 0){ }
+  for(let index = myLineChart.data.labels[myLineChart.data.labels.length]; index <= dbdata.length; index++) 
   {
     addData(myLineChart, dbdata[index].id, dbdata[index].temp, dbdata[index].pressure);
   }

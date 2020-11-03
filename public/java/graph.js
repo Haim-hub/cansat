@@ -24,7 +24,7 @@ var myLineChart = new Chart(ctx, {
       },{ 
         data: [0],
         label: "Tryk",
-        borderColor: "#c0daeb",
+        borderColor: "#c72a3f",
         fill: false,
         hidden: true
       }
@@ -80,7 +80,10 @@ function changeAxis()
 {
   var x = document.getElementById("y-aksen").value;
   alert("REEEE");
-  myLineChart.data.dataset[0].hidden = true;
-  myLineChart.data.dataset[1].hidden = false;
-  chart.update();
+  myLineChart.getDatasetMeta(0).hidden = true;
+  myLineChart.getDatasetMeta(1).hidden = false;
+
+  /* myLineChart.data.dataset[0].hidden = true;
+  myLineChart.data.dataset[1].hidden = false; */
+  myLineChart.update();
 }

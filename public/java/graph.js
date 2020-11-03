@@ -70,7 +70,7 @@ function xhrLoad() {
   console.log(myLineChart.data.labels.length)
   for(let index = myLineChart.data.labels.length; index < dbdata.length; index++) 
   {
-    addData(myLineChart, dbdata[0].id, dbdata[0].temp);
+    addData(myLineChart, dbdata[index-1].id, dbdata[index-1].temp);
   }
 
 

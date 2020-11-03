@@ -17,14 +17,16 @@ var myLineChart = new Chart(ctx, {
     labels: [],
     datasets: [{ 
         data: [],
-        label: "Målt",
+        label: "Temp",
         borderColor: "#3e95cd",
-        fill: false
+        fill: false,
+        hidden: false
       },{ 
         data: [],
-        label: "Teoretisk",
+        label: "Tryk",
         borderColor: "#c0daeb",
-        fill: false
+        fill: false,
+        hidden: true
       }
       
     ]
@@ -43,11 +45,10 @@ var myLineChart = new Chart(ctx, {
   }
 });
 
-function addData(chart, label, data) {
+function addData(chart, label, temp, tryk) {
   chart.data.labels.push(label);
-  chart.data.datasets.forEach((dataset) => {
-      dataset.data.push(data);
-  });
+  chart.data.datasets[0].data.push(temp);
+  chart.data.datasets[1].data.push(tryk);
   
   if(chart.data.datasets[0].data.length > 10){
     removeData(myLineChart);
@@ -66,10 +67,9 @@ function removeData(chart) {
 
 function xhrLoad() {
   let dbdata = JSON.parse(this.responseText).dbdata;
-  for(let index = myLineChart.data.labels.length; index < dbdata.length; index++) 
+  for(let index = myLineChart.data.labels.length; index < 10; index++) 
   {
-    console.log(dbdata[index].temp);
-    addData(myLineChart, dbdata[index].id, dbdata[index].temp);
+    addData(myLineChart, dbdata[index].id, dbdata[index].temp, dbdata[index].pressure);
   }
 
 

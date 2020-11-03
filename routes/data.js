@@ -23,5 +23,34 @@ client.release();
 } });
 
 
+router.get("/add", async (req, res) => { try {
+
+    // Wait for DB connection
+    const client = await pool.connect(); // Run query
+
+    let temp = req.query.temp;
+    let pressure = req.query.pressure;
+
+    const SQL_query = {
+        text: "INSERT INTO cansat (temp,pressure) VALUES ($1, $2)", 
+        values: [temp, pressure]
+    };
+
+    await client.query(SQL_query);
+
+
+    client.release();
+    res.send('ok');
+    // Release connection
+    
+    
+
+    
+
+    }catch (err) {  
+
+// Report errors console.error(err); res.send("Error " + err);
+} });
+
 
 module.exports = router;

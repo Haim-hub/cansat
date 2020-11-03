@@ -1,4 +1,5 @@
 CREATE TABLE cansat (
+  num           REAL,
   id            SERIAL PRIMARY KEY,
   temp          REAL,
   pressure      REAL,

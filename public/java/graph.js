@@ -27,7 +27,14 @@ var myLineChart = new Chart(ctx, {
         borderColor: "#c72a3f",
         fill: false,
         hidden: true
+      },{
+        data: [0],
+        label: "Alt",
+        borderColor: "#17852a",
+        fill: false,
+        hidden: true
       }
+
       
     ]
   },
@@ -45,10 +52,11 @@ var myLineChart = new Chart(ctx, {
   }
 });
 
-function addData(chart, label, temp, tryk) {
+function addData(chart, label, temp, tryk, alt) {
   chart.data.labels.push(label);
   chart.data.datasets[0].data.push(temp);
   chart.data.datasets[1].data.push(tryk);
+  chart.data.datasets[2].data.push(alt);
   
   if(chart.data.datasets[0].data.length >= 10){
     removeData(myLineChart);
@@ -83,11 +91,19 @@ function changeAxis()
   {
     myLineChart.getDatasetMeta(0).hidden = false;
     myLineChart.getDatasetMeta(1).hidden = true;
+    myLineChart.getDatasetMeta(2).hidden = false;
   }
   if(x === "tryk")
   {
     myLineChart.getDatasetMeta(0).hidden = true;
     myLineChart.getDatasetMeta(1).hidden = false;
+    myLineChart.getDatasetMeta(2).hidden = false;
+  }
+  if(x === "højde")
+  {
+    myLineChart.getDatasetMeta(0).hidden = true;
+    myLineChart.getDatasetMeta(1).hidden = false;
+    myLineChart.getDatasetMeta(2).hidden = true;
   }
   
 

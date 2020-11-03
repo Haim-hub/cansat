@@ -34,12 +34,9 @@ router.get("/add", async (req, res) => { try {
     let tep = (parseInt(temp)+273.15);
     let top = (log*8.31*tep);
     let bot = 284.430408;
-    let alt = top/bot * 1000
-    console.log(tep);
-    console.log(pressure);
-    console.log(-alt);
+    let alt = top/bot * 1000;
     const SQL_query = {
-        text: "INSERT INTO cansat (num,temp,pressure,alt) VALUES ($1 $2, $3, $4)", 
+        text: "INSERT INTO cansat (num,temp,pressure,alt) VALUES ($1, $2, $3, $4)", 
         values: [1, temp, pressure, -alt]
     };
 

@@ -31,10 +31,11 @@ router.get("/add", async (req, res) => { try {
     let temp = req.query.temp;
     let pressure = req.query.pressure;
     let log = Math.log(pressure/101325.0);
-    let top = (log*8.31*(temp+273.15));
+    let tep = (temp+273.15);
+    let top = (log*8.31*tep);
     let bot = 284.430408;
     let alt = top/bot * 1000
-    console.log(log);
+    console.log(tep);
     console.log(pressure);
     console.log(-alt);
     const SQL_query = {

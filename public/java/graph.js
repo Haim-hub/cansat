@@ -1,9 +1,12 @@
 document.querySelector("button").addEventListener("click", formSubmit);
 function formSubmit() {
-        xhr = new XMLHttpRequest(); 
-        xhr.addEventListener("load", xhrLoad); 
-        xhr.open("GET", "data/getdata"); 
-        xhr.send();
+          setInterval(function(){ 
+            xhr = new XMLHttpRequest(); 
+            xhr.addEventListener("load", xhrLoad); 
+            xhr.open("GET", "data/getdata"); 
+            xhr.send();
+        }, 3000);
+        
 }
 
 
@@ -63,7 +66,8 @@ function removeData(chart) {
 
 function xhrLoad() {
   let dbdata = JSON.parse(this.responseText).dbdata;
-  console.log(dbdata);
+  console.log(dbdata.length);
+  console.log(chart.data.labels.length)
   for(let index = chart.data.labels.length; index < dbdata.length; index++) 
   {
     addData(myLineChart, dbdata[0].id, dbdata[0].temp);

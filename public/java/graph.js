@@ -77,7 +77,7 @@ function xhrLoad() {
   let dbdata = JSON.parse(this.responseText).dbdata;
   for(let index = myLineChart.data.labels[myLineChart.data.labels.length-1]; index <= dbdata.length; index++) 
   {
-    addData(myLineChart, dbdata[index].id, dbdata[index].temp, dbdata[index].pressure);
+    addData(myLineChart, dbdata[index].id, dbdata[index].temp, dbdata[index].pressure, dbdata[index].alt);
   }
 
 

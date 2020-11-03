@@ -40,7 +40,6 @@ router.get("/add", async (req, res) => { try {
     };
 
     await client.query(SQL_query);
-    Math.
 
     client.release();
     res.send('ok');

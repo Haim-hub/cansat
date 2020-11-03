@@ -14,15 +14,15 @@ var ctx = document.getElementById('myChart');
 var myLineChart = new Chart(ctx, {
     type: 'line',
   data: {
-    labels: [],
+    labels: [0],
     datasets: [{ 
-        data: [],
+        data: [0],
         label: "Temp",
         borderColor: "#3e95cd",
         fill: false,
         hidden: false
       },{ 
-        data: [],
+        data: [0],
         label: "Tryk",
         borderColor: "#c0daeb",
         fill: false,

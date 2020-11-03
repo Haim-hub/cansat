@@ -78,7 +78,7 @@ function xhrLoad() {
 
 function changeAxis()
 {
-  var x = document.getElementById("mySelect").value;
+  var x = document.getElementById("y-aksen").value;
   alert("REEEE");
   myLineChart.data.dataset[0].hidden = true;
   myLineChart.data.dataset[1].hidden = false;

@@ -79,12 +79,12 @@ function xhrLoad() {
 function changeAxis()
 {
   var x = document.getElementById("y-aksen").value;
-  if(x = "temperatur")
+  if(x === "temperatur")
   {
     myLineChart.getDatasetMeta(0).hidden = false;
     myLineChart.getDatasetMeta(1).hidden = true;
   }
-  if(x = "tryk")
+  if(x === "tryk")
   {
     myLineChart.getDatasetMeta(0).hidden = true;
     myLineChart.getDatasetMeta(1).hidden = false;

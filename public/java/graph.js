@@ -79,6 +79,7 @@ function xhrLoad() {
 function changeAxis()
 {
   var x = document.getElementById("mySelect").value;
+  alert("REEEE");
   myLineChart.data.dataset[0].hidden = true;
   myLineChart.data.dataset[1].hidden = false;
 }

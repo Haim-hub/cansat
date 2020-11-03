@@ -79,11 +79,18 @@ function xhrLoad() {
 function changeAxis()
 {
   var x = document.getElementById("y-aksen").value;
-  alert("REEEE");
-  myLineChart.getDatasetMeta(0).hidden = true;
-  myLineChart.getDatasetMeta(1).hidden = false;
+  if(x = "temperatur")
+  {
+    myLineChart.getDatasetMeta(0).hidden = false;
+    myLineChart.getDatasetMeta(1).hidden = true;
+  }
+  if(x = "tryk")
+  {
+    myLineChart.getDatasetMeta(0).hidden = true;
+    myLineChart.getDatasetMeta(1).hidden = false;
+  }
+  
 
-  /* myLineChart.data.dataset[0].hidden = true;
-  myLineChart.data.dataset[1].hidden = false; */
+
   myLineChart.update();
 }

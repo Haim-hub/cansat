@@ -17,7 +17,7 @@
 </head>
 
 
-<body>
+<body onload="keepItLive()">
     <!-- This ul is for the navigatoinbar -->
     <ul id="navbar">
         <li>                        <a class="active">Live</a>     </li>
@@ -65,7 +65,7 @@
                 </div>
             
             <!-- This is the container and canvas to implement the grapg from GraphJS -->
-            <div class="container" onload="keepItLive()">
+            <div class="container">
                 <canvas id="myChart"></canvas>
               </div>
 

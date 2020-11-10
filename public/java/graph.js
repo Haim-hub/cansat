@@ -1,6 +1,3 @@
-window.addEventListener('beforeunload', function() {
-  localStorage.removeItem("num");
-});
 document.querySelector("button").addEventListener("click", formSubmit);
 
 
@@ -16,7 +13,7 @@ function formSubmit() {
 
 function keepItLive()
 {
-  if(localStorage.getItem("num") >= 1)
+  if(document.location.search.replace(/^.*?\=/,'') >= 1)
   {
     setInterval(function(){ 
       xhr = new XMLHttpRequest(); 

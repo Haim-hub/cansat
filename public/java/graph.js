@@ -1,11 +1,29 @@
+document.onload = formSubmit;
 document.querySelector("button").addEventListener("click", formSubmit);
+
+
 function formSubmit() {
-          setInterval(function(){ 
-            xhr = new XMLHttpRequest(); 
-            xhr.addEventListener("load", xhrLoad); 
-            xhr.open("GET", "data/getdata"); 
-            xhr.send();
-        }, 3000);
+          if(localStorage.getItem("num") >= 1)
+          {
+            setInterval(function(){ 
+              xhr = new XMLHttpRequest(); 
+              xhr.addEventListener("load", xhrLoad); 
+              xhr.open("GET", "data/getdata"); 
+              xhr.send();
+            }, 3000);
+          }
+          else
+          {
+            localStorage.setItem("num",1)
+            setInterval(function(){ 
+              xhr = new XMLHttpRequest(); 
+              xhr.addEventListener("load", xhrLoad); 
+              xhr.open("GET", "data/getdata"); 
+              xhr.send();
+            }, 3000);
+          }
+          
+          
         
 }
 

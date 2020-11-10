@@ -1,4 +1,4 @@
-document.onload = formSubmit;
+document.getElementById("myChart").onload = formSubmit;
 document.querySelector("button").addEventListener("click", formSubmit);
 
 

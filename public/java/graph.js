@@ -1,3 +1,6 @@
+window.addEventListener('beforeunload', function() {
+  localStorage.removeItem("num");
+});
 document.querySelector("button").addEventListener("click", formSubmit);
 
 

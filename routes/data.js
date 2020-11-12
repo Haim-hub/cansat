@@ -11,9 +11,10 @@ router.get("/getdata", async (req, res) => { try {
 const client = await pool.connect(); // Run query
 const secclient = await pool.connect(); // second query
 
-let max = parseInt(result.rows[0].max);
+const maxresult = await secclient.query("SELECT MAX(num) FROM cansat");
+let maxi = parseInt(maxresult.rows[0].max);
 
-const result = await client.query("SELECT * FROM cansat WHERE num = "+max);
+const result = await client.query("SELECT * FROM cansat WHERE num = "+maxi);
 
     // Respond with DB results as json
 if (result) res.json({dbdata: result.rows}); 

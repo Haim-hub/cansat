@@ -62,16 +62,14 @@ const client = await pool.connect(); // Run query
 
 const secclient = await pool.connect(); // second query
 
+const thrclient = await pool.connect(); // third query
+
 const result = await secclient.query("SELECT MAX(num) FROM cansat");
 
-console.log(result.rows[0].max);
 
 let newnum = parseInt(result.rows[0].max)+parseInt(1);
 
-console.log(newnum);
-
-let texti = "ALTER TABLE cansat ALTER COLUMN num SET default "+4;
-
+let texti = "ALTER TABLE cansat ALTER COLUMN num SET default "+newnum;
 
 const SQL_query = {
     text: texti
@@ -79,8 +77,15 @@ const SQL_query = {
 
 await client.query(SQL_query);
 
+const SQL_nexquery = {
+    text: "ALTER SEQUENCE cansat_id_seq RESTART WITH 1; "
+};
+
+await thrclient.query(SQL_nexquery);
+
 client.release();
 secclient.release();
+thrclient.release();
 res.send('ok');
 // Release connection
 

@@ -66,7 +66,7 @@ const result = await secclient.query("SELECT MAX(num) FROM cansat");
 
 console.log(result.rows[0].max);
 
-let newnum = result+1;
+let newnum = parseInt(result)+parseInt(1);
 
 console.log(newnum);
 

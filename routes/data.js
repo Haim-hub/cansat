@@ -69,7 +69,7 @@ else res.json({dbdata: null});
 
 const SQL_query = {
     text: "INSERT INTO cansat (temp,pressure,alt) VALUES ($1, $2, $3)", 
-    values: [temp, pressure, -alt]
+    values: [1, 2, 2]
 };
 
 await client.query(SQL_query);

@@ -62,6 +62,10 @@ router.get("/new", async (req, res) => { try {
 
     const last = await client.query("SELECT MAX(num) FROM cansat");
 
+    client.release();
+
+    const client = await pool.connect();
+    
     const SQL_query = {
         text: "ALTER TABLE cansat ALTER COLUMN num SET default"+last
     };

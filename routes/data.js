@@ -68,6 +68,8 @@ const result = await secclient.query("SELECT MAX(num) FROM cansat");
 
 let texti = "ALTER TABLE cansat ALTER COLUMN num SET default"+1;
 
+console.log(texti);
+
 const SQL_query = {
     text: texti
 };

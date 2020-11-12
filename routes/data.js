@@ -60,7 +60,9 @@ router.get("/new", async (req, res) => { try {
     // Wait for DB connection
 const client = await pool.connect(); // Run query
 
-const result = await client.query("SELECT * FROM cansat");
+const secclient = await pool.connect(); // second query
+
+const result = await secclient.query("SELECT * FROM cansat");
 
 const SQL_query = {
     text: "INSERT INTO cansat (temp,pressure,alt) VALUES ($1, $2, $3)", 
@@ -70,6 +72,7 @@ const SQL_query = {
 await client.query(SQL_query);
 
 client.release();
+secclient.release();
 res.send('ok');
 // Release connection
 

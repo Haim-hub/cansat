@@ -64,7 +64,11 @@ const secclient = await pool.connect(); // second query
 
 const result = await secclient.query("SELECT MAX(num) FROM cansat");
 
-//let newnum = result+1;
+console.log(result);
+
+let newnum = result+1;
+
+console.log(newnum);
 
 let texti = "ALTER TABLE cansat ALTER COLUMN num SET default "+4;
 

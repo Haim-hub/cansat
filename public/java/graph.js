@@ -2,6 +2,7 @@ document.querySelector("button").addEventListener("click", formSubmit);
 
 
 function formSubmit() {
+            window.document.location = './index.html?num=1';
             setInterval(function(){ 
               xhr = new XMLHttpRequest(); 
               xhr.addEventListener("load", xhrLoad); 
@@ -123,3 +124,16 @@ function changeAxis()
 
   myLineChart.update();
 }
+
+function hisswitch()
+{
+    if(document.location.search.replace(/^.*?\=/,''))
+    {
+        window.document.location = './historik.html?num=' + document.location.search.replace(/^.*?\=/,'');
+    }
+    else
+    {
+        window.document.location = './historik.html';
+    }
+}
+   

@@ -58,27 +58,24 @@ router.get("/add", async (req, res) => { try {
 router.get("/new", async (req, res) => { try {
 
     // Wait for DB connection
-    const client = await pool.connect(); // Run query
+const client = await pool.connect(); // Run query
 
-    const last = await client.query("SELECT MAX(num) FROM cansat");
+const result = await client.query("SELECT * FROM cansat");
 
-    client.release();
+const SQL_query = {
+    text: "INSERT INTO cansat (num,temp,pressure,alt) VALUES ($1, $2, $3, $4)", 
+    values: [1, temp, pressure, -alt]
+};
 
-    const client = await pool.connect();
-    
-    const SQL_query = {
-        text: "ALTER TABLE cansat ALTER COLUMN num SET default"+last
-    };
+await client.query(SQL_query);
 
-    await client.query(SQL_query);
+client.release();
+res.send('ok');
+// Release connection
 
-    client.release();
-    res.send('ok');
-    // Release connection
-    
-    
 
-    }catch (err) {  
+
+}catch (err) {  
 
 // Report errors console.error(err); res.send("Error " + err);
 } });

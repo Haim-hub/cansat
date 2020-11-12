@@ -64,11 +64,8 @@ const secclient = await pool.connect(); // second query
 
 const result = await secclient.query("SELECT MAX(num) FROM cansat");
 
-if (result) res.json({dbdata: result}); 
-else res.json({dbdata: null});
-
 const SQL_query = {
-    text: "ALTER TABLE cansat ALTER COLUMN num SET default"
+    text: "ALTER TABLE cansat ALTER COLUMN num SET default 1"
 };
 
 await client.query(SQL_query);

@@ -9,14 +9,18 @@ connectionString: process.env.DATABASE_URL, ssl: {
 router.get("/getdata", async (req, res) => { try {
     // Wait for DB connection
 const client = await pool.connect(); // Run query
+const secclient = await pool.connect(); // second query
 
-const result = await client.query("SELECT * FROM cansat");
+let max = parseInt(result.rows[0].max);
+
+const result = await client.query("SELECT * FROM cansat WHERE num = "+max);
 
     // Respond with DB results as json
 if (result) res.json({dbdata: result.rows}); 
 else res.json({dbdata: null});
     // Release connection
 client.release();
+secclient.release();
 } catch (err) {
 
 // Report errors console.error(err); res.send("Error " + err);

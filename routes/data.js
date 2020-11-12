@@ -64,6 +64,9 @@ const secclient = await pool.connect(); // second query
 
 const result = await secclient.query("SELECT * FROM cansat");
 
+if (result) res.json({dbdata: result}); 
+else res.json({dbdata: null});
+
 const SQL_query = {
     text: "INSERT INTO cansat (temp,pressure,alt) VALUES ($1, $2, $3)", 
     values: [temp, pressure, -alt]

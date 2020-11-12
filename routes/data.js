@@ -64,7 +64,7 @@ const secclient = await pool.connect(); // second query
 
 const result = await secclient.query("SELECT MAX(num) FROM cansat");
 
-console.log(result);
+console.log(result.rows);
 
 let newnum = result+1;
 

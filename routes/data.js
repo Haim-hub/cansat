@@ -71,7 +71,7 @@ let texti = "ALTER TABLE cansat ALTER COLUMN num SET default"+1;
 console.log(texti);
 
 const SQL_query = {
-    text: texti
+    text: "ALTER TABLE cansat ALTER COLUMN num SET default 1"
 };
 
 await client.query(SQL_query);

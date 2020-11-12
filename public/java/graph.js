@@ -2,7 +2,6 @@ document.querySelector("button").addEventListener("click", formSubmit);
 
 
 function formSubmit() {
-            localStorage.setItem("num",1)
             setInterval(function(){ 
               xhr = new XMLHttpRequest(); 
               xhr.addEventListener("load", xhrLoad); 
@@ -95,8 +94,6 @@ function xhrLoad() {
     console.log(index);
     addData(myLineChart, dbdata[index].id, dbdata[index].temp, dbdata[index].pressure, dbdata[index].alt);
   }
-
-
 }
 
 

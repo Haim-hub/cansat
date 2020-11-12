@@ -54,6 +54,30 @@ router.get("/add", async (req, res) => { try {
 } });
 
 
+//Go to this route when starting a new måling from the arduino
+router.get("/new", async (req, res) => { try {
+
+    // Wait for DB connection
+    const client = await pool.connect(); // Run query
+
+    const last = await client.query("SELECT MAX(num) FROM cansat");
+
+    const SQL_query = {
+        text: "ALTER TABLE cansat ALTER COLUMN num SET default"+last
+    };
+
+    await client.query(SQL_query);
+
+    client.release();
+    res.send('ok');
+    // Release connection
+    
+    
+
+    }catch (err) {  
+
+// Report errors console.error(err); res.send("Error " + err);
+} });
 
 
 module.exports = router;

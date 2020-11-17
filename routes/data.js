@@ -101,6 +101,7 @@ res.send('ok');
 // Report errors console.error(err); res.send("Error " + err);
 } });
 
+
 router.get("/rotate", async (req, res) => { try {
 
     // Wait for DB connection

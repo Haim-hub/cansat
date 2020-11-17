@@ -147,7 +147,29 @@ function init()
 	geometry = new THREE.BoxGeometry(3,0.2,2);
 	material = new THREE.MeshNormalMaterial();
 	box = new THREE.Mesh( geometry, material );
-	scene.add( box );
+  scene.add( box );
+  
+  const loader = new OBJLoader();
+  loader.load
+  (
+    'cansatobj.obj',
+
+    function(object)
+    {
+      scene.add(object);
+    },
+
+    function(xhhr)
+    {
+      console.log((xhhr.loaded / xhhr.total * 100 )+ '% loaded');
+    },
+
+    function(error)
+    {
+      console.log('ERROR... FUCK');
+    }
+
+  )
 
     	var fov = 50;
     	var aspect = document.getElementById("modelboxid").getBoundingClientRect().width / document.getElementById("modelboxid").getBoundingClientRect().height;

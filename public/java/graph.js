@@ -187,7 +187,7 @@ function autoRotate(xr, zr)
 
 function xhrthreeLoad() {
   let dbdata = JSON.parse(this.responseText).dbdata;
-  animate(dbdata[2].xrotation, dbdata[2].zrotation);
+  animate(dbdata[1].xrotation, dbdata[1].zrotation);
 }
 
 window.onload = function() 

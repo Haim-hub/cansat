@@ -140,6 +140,7 @@ function hisswitch()
 /* 3D stuff */
 function init()
 {
+  const container = document.getElementById( 'threedcontainer' );
   scene = new THREE.Scene();
  
 	geometry = new THREE.BoxGeometry(3,0.2,2);
@@ -148,10 +149,11 @@ function init()
 	scene.add( box );
 
     	var fov = 50;
-    	var aspect = window.innerWidth / window.innerHeight;
+    	var aspect = document.getElementById("modelboxid").getBoundingClientRect().width / document.getElementById("modelboxid").getBoundingClientRect().height;
     	var near = 0.10;
     	var far = 100;
-    	camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+      camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+
 	camera.rotation.x = -0.4;
 	camera.rotation.y = 1;
 	camera.rotation.z = 0.37;
@@ -159,9 +161,13 @@ function init()
 	camera.position.y = 0.8;
 	camera.position.z = 1.5;
  
-	renderer = new THREE.WebGLRenderer( { antialias: true } );
-	renderer.setSize( window.innerWidth / 3, window.innerHeight / 3);
-	document.body.appendChild( renderer.domElement );
+/* 	renderer = new THREE.WebGLRenderer( { antialias: true } );
+  renderer.setSize( document.getElementById("modelboxid").getBoundingClientRect().width / 1.5 , document.getElementById("modelboxid").getBoundingClientRect().height / 1.5);
+  document.body.appendChild( renderer.domElement ); */
+
+renderer = new THREE.WebGLRenderer( { antialias: true } );
+renderer.setSize( document.getElementById("threedcontainer").getBoundingClientRect().width, document.getElementById("threedcontainer").getBoundingClientRect().height);
+container.appendChild( renderer.domElement );
 }
 
 function animate()
@@ -177,5 +183,8 @@ function autoRotate()
 	box.rotation.z += 0.001;
 }
 
-init();
-animate();
+window.onload = function() 
+{
+  init();
+  animate();
+}

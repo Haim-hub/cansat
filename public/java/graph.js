@@ -195,10 +195,8 @@ function autoRotate(xr, zr)
 window.onload = function() 
 {
   init();
-  setInterval(function(){ 
     xhr = new XMLHttpRequest(); 
     xhr.addEventListener("load", animate); 
     xhr.open("GET", "data/getrotation"); 
     xhr.send();
-  }, 200); 
 }

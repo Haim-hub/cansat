@@ -180,7 +180,7 @@ function animate()
 
 function autoRotate()
 {
-  box.rotation.x = 2.01;
+  box.rotation.x += 0.01;
 	box.rotation.z = 1.002;
 }
 

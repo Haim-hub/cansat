@@ -7,5 +7,8 @@ CREATE TABLE cansat (
   date_time     timestamp default current_timestamp
 );
 
-DECLARE @@xrotation AS INT;
+CREATE TABLE rotation (
+  xrotation     REAL,
+  zrotation     REAL
+);
 

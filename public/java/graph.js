@@ -173,15 +173,16 @@ container.appendChild( renderer.domElement );
 
 function animate()
 {
+  let dbdata = JSON.parse(this.responseText).dbdata;
   requestAnimationFrame( animate );
-  autoRotate();
+  autoRotate(dbdata[0].xrotation, dbdata[0].zrotation));
   renderer.render( scene, camera );
 }
 
-function autoRotate()
+function autoRotate(xr, zr)
 {
-  box.rotation.x += 0.01;
-	box.rotation.z = 1.002;
+  box.rotation.x = xr;
+	box.rotation.z = zr;
 }
 
 
@@ -194,11 +195,10 @@ function autoRotate()
 window.onload = function() 
 {
   init();
-  animate();
-  /* setInterval(function(){ 
+  setInterval(function(){ 
     xhr = new XMLHttpRequest(); 
-    xhr.addEventListener("load", xhrthreeLoad); 
+    xhr.addEventListener("load", animate); 
     xhr.open("GET", "data/getrotation"); 
     xhr.send();
-  }, 200); */
+  }, 200); 
 }

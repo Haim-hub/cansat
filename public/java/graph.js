@@ -144,7 +144,7 @@ function init()
   const container = document.getElementById( 'threedcontainer' );
   scene = new THREE.Scene();
   
-	geometry = new THREE.CylinderGeometry(0.2 ,0.2 ,2);
+	geometry = new THREE.CylinderGeometry(0.5 ,0.5 ,2);
 	material = new THREE.MeshNormalMaterial();
 	box = new THREE.Mesh( geometry, material );
   scene.add( box );

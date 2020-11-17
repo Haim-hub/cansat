@@ -1,3 +1,13 @@
+document.querySelector("button").addEventListener("click", formSubmit);
+
+
+function formSubmit() {
+              xhr = new XMLHttpRequest(); 
+              xhr.addEventListener("load", xhrLoad); 
+              xhr.open("GET", "data/getdata"); 
+              xhr.send();
+}
+
 function liveswitch()
 {
     if(document.location.search.replace(/^.*?\=/,''))
@@ -9,33 +19,7 @@ function liveswitch()
         window.document.location = './index.html';
     }
 }
-    
-function changeAxis()
-{
-  var x = document.getElementById("y-aksen").value;
-  if(x === "temperatur")
-  {
-    myLineChart.getDatasetMeta(0).hidden = false;
-    myLineChart.getDatasetMeta(1).hidden = true;
-    myLineChart.getDatasetMeta(2).hidden = true;
-  }
-  if(x === "tryk")
-  {
-    myLineChart.getDatasetMeta(0).hidden = true;
-    myLineChart.getDatasetMeta(1).hidden = false;
-    myLineChart.getDatasetMeta(2).hidden = true;
-  }
-  if(x === "højde")
-  {
-    myLineChart.getDatasetMeta(0).hidden = true;
-    myLineChart.getDatasetMeta(1).hidden = true;
-    myLineChart.getDatasetMeta(2).hidden = false;
-  }
-  
 
-
-  myLineChart.update();
-}
 
 var ctx = document.getElementById('myChart');
 var myLineChart = new Chart(ctx, {
@@ -79,3 +63,44 @@ var myLineChart = new Chart(ctx, {
   }
 });
 
+function addData(chart, label, temp, tryk, alt) {
+    chart.data.labels.push(label);
+    chart.data.datasets[0].data.push(temp);
+    chart.data.datasets[1].data.push(tryk);
+    chart.data.datasets[2].data.push(alt);
+    chart.update();
+}
+
+function xhrLoad() {
+    let dbdata = JSON.parse(this.responseText).dbdata;
+    for(let index = myLineChart.data.labels[myLineChart.data.labels.length-1]; index <= dbdata.length; index++) 
+    {
+      addData(myLineChart, dbdata[index].id, dbdata[index].temp, dbdata[index].pressure, dbdata[index].alt);
+    }
+  }
+ 
+function changeAxis()
+{
+  var x = document.getElementById("y-aksen").value;
+  if(x === "temperatur")
+  {
+    myLineChart.getDatasetMeta(0).hidden = false;
+    myLineChart.getDatasetMeta(1).hidden = true;
+    myLineChart.getDatasetMeta(2).hidden = true;
+  }
+  if(x === "tryk")
+  {
+    myLineChart.getDatasetMeta(0).hidden = true;
+    myLineChart.getDatasetMeta(1).hidden = false;
+    myLineChart.getDatasetMeta(2).hidden = true;
+  }
+  if(x === "højde")
+  {
+    myLineChart.getDatasetMeta(0).hidden = true;
+    myLineChart.getDatasetMeta(1).hidden = true;
+    myLineChart.getDatasetMeta(2).hidden = false;
+  }
+  
+
+  myLineChart.update();
+}

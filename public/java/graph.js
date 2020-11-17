@@ -195,7 +195,7 @@ window.onload = function()
   init();
   setInterval(function(){ 
     xhr = new XMLHttpRequest(); 
-    xhr.addEventListener("threeLoad", xhrthreeLoad); 
+    xhr.addEventListener("load", xhrthreeLoad); 
     xhr.open("GET", "data/getrotation"); 
     xhr.send();
   }, 200);

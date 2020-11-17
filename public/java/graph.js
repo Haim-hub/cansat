@@ -171,17 +171,17 @@ renderer.setSize( document.getElementById("threedcontainer").getBoundingClientRe
 container.appendChild( renderer.domElement );
 }
 
-function animate(xr, zr)
+function animate()
 {
   requestAnimationFrame( animate );
   autoRotate(xr, zr);
   renderer.render( scene, camera );
 }
 
-function autoRotate(xr, zr)
+function autoRotate()
 {
-  box.rotation.x = xr;
-	box.rotation.z = zr;
+  box.rotation.x = 5;
+	box.rotation.z = 1;
 }
 
 
@@ -194,7 +194,7 @@ function autoRotate(xr, zr)
 window.onload = function() 
 {
   init();
-  animate(5,1);
+  animate();
   /* setInterval(function(){ 
     xhr = new XMLHttpRequest(); 
     xhr.addEventListener("load", xhrthreeLoad); 

@@ -136,4 +136,43 @@ function hisswitch()
         window.document.location = './historik.html';
     }
 }
-   
+ 
+/* 3D stuff */
+function init()
+{
+  scene = new THREE.Scene();
+ 
+	geometry = new THREE.BoxGeometry(3,0.2,2);
+	material = new THREE.MeshNormalMaterial();
+	box = new THREE.Mesh( geometry, material );
+	scene.add( box );
+
+    	var fov = 50;
+    	var aspect = window.innerWidth / window.innerHeight;
+    	var near = 0.10;
+    	var far = 100;
+    	camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+	camera.rotation.x = -0.4;
+	camera.rotation.y = 1;
+	camera.rotation.z = 0.37;
+	camera.position.x = 3;
+	camera.position.y = 0.8;
+	camera.position.z = 1.5;
+ 
+	renderer = new THREE.WebGLRenderer( { antialias: true } );
+	renderer.setSize( window.innerWidth / 3, window.innerHeight / 3);
+	document.body.appendChild( renderer.domElement );
+}
+
+function animate()
+{
+  requestAnimationFrame( animate );
+  autoRotate();
+  renderer.render( scene, camera );
+}
+
+function autoRotate()
+{
+  box.rotation.x += 0.001;
+	box.rotation.z += 0.001;
+}

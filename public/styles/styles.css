@@ -116,6 +116,12 @@
     grid-column: 1;
     grid-row: 5/11;
 }
+#threedcontainer
+{
+     float: right;
+}
+
+
 
 /* This removes the padding form the box with the startbutton since it is the 4th child */
 .wrapper > div:nth-child(4){
@@ -181,3 +187,5 @@
     background-color: #17852a;
     border-color: #052235;
 }
+
+

@@ -138,26 +138,17 @@ function hisswitch()
  
 
 
-/* 3D stuff */
-import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/build/three.module.js';
-import {OBJLoader2} from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/loaders/OBJLoader2.js';
-
 
 function init()
 {
   const container = document.getElementById( 'threedcontainer' );
   scene = new THREE.Scene();
- 
-	geometry = new THREE.BoxGeometry(3,0.2,2);
+  
+	geometry = new THREE.CylinderGeometry(3 ,0.2 ,2 ,3);
 	material = new THREE.MeshNormalMaterial();
 	box = new THREE.Mesh( geometry, material );
   scene.add( box );
   
-  const objLoader = new OBJLoader2();
-    objLoader.load('./cansatobj.obj', (root) => {
-      scene.add(root);
-    });
-
     	var fov = 50;
     	var aspect = document.getElementById("modelboxid").getBoundingClientRect().width / document.getElementById("modelboxid").getBoundingClientRect().height;
     	var near = 0.10;

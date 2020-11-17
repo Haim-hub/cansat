@@ -169,7 +169,7 @@ function init()
       console.log('ERROR... FUCK');
     }
 
-  )
+  );
 
     	var fov = 50;
     	var aspect = document.getElementById("modelboxid").getBoundingClientRect().width / document.getElementById("modelboxid").getBoundingClientRect().height;

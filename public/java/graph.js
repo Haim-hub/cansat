@@ -174,14 +174,14 @@ container.appendChild( renderer.domElement );
 function animate()
 {
   requestAnimationFrame( animate );
-  autoRotate(xr, zr);
+  autoRotate();
   renderer.render( scene, camera );
 }
 
 function autoRotate()
 {
-  box.rotation.x = 5;
-	box.rotation.z = 1;
+  box.rotation.x = 2.01;
+	box.rotation.z = 1.002;
 }
 
 

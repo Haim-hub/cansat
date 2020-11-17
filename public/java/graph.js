@@ -137,10 +137,12 @@ function hisswitch()
 }
  
 
-import * as THREE from '../build/three.module.js';
 
-import { OBJLoader } from './jsm/loaders/OBJLoader.js';
 /* 3D stuff */
+import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/build/three.module.js';
+import {OBJLoader2} from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/loaders/OBJLoader2.js';
+
+
 function init()
 {
   const container = document.getElementById( 'threedcontainer' );
@@ -151,10 +153,10 @@ function init()
 	box = new THREE.Mesh( geometry, material );
   scene.add( box );
   
-  var loader = new THREE.OBJLoader();
-loader.load( "./cansatobg.obj", function ( object ) {
-  scene.add( object );
-} );
+  const objLoader = new OBJLoader2();
+    objLoader.load('./cansatobj.obj', (root) => {
+      scene.add(root);
+    });
 
     	var fov = 50;
     	var aspect = document.getElementById("modelboxid").getBoundingClientRect().width / document.getElementById("modelboxid").getBoundingClientRect().height;

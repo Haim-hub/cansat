@@ -149,26 +149,28 @@ function init()
 	box = new THREE.Mesh( geometry, material );
   scene.add( box );
   
-  const loader = new OBJLoader();
-  loader.load
-  (
-    'cansatobj.obj',
+  // load a resource
+  loader.load(
+    // resource URL
+    './cansatobj.obj',
+    // called when resource is loaded
+    function ( object ) {
 
-    function(object)
-    {
-      scene.add(object);
+      scene.add( object );
+
     },
+    // called when loading is in progresses
+    function ( xhhr ) {
 
-    function(xhhr)
-    {
-      console.log((xhhr.loaded / xhhr.total * 100 )+ '% loaded');
+      console.log( ( xhhr.loaded / xhhr.total * 100 ) + '% loaded' );
+
     },
+    // called when loading has errors
+    function ( error ) {
 
-    function(error)
-    {
-      console.log('ERROR... FUCK');
+      console.log( 'An error happened' );
+
     }
-
   );
 
     	var fov = 50;

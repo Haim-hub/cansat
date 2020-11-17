@@ -26,6 +26,30 @@
 
         <div class="box box2">    
             <a class="boxHeader"> Målinger </a>
+
+            <div id="settings"> 
+                <a>y-aksen:</a>
+                <select name="y-aksen" id="y-aksen" onchange="changeAxis()">
+                    <option value="temperatur">Temperatur</option>
+                    <option value="højde">Højde</option>
+                    <option value="tryk">Tryk</option>
+                </select>
+
+                <div style="float:right; padding-right: 10px; display: inline;">
+                    <div class="legend" id="readLegend"> </div> <a> Temperatur </a>
+
+                    <div class="legend"  id="calLegend" > </div> <a> Tryk </a> 
+
+                    <div class="legend"  id="altLegend" > </div> <a> Højde </a> 
+                </div>
+
+                </div>
+            
+            <!-- This is the container and canvas to implement the grapg from GraphJS -->
+            <div class="container">
+                <canvas id="myChart"></canvas>
+              </div>
+
         </div>
 
     </div>

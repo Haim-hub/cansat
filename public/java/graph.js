@@ -149,7 +149,7 @@ function init()
 	box = new THREE.Mesh( geometry, material );
   scene.add( box );
   
-  const loader = new OBJLoader();
+  const loader = new THREE.OBJLoader();
   // load a resource
   loader.load(
     // resource URL

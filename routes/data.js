@@ -101,5 +101,48 @@ res.send('ok');
 // Report errors console.error(err); res.send("Error " + err);
 } });
 
+router.get("/rotate", async (req, res) => { try {
+
+    // Wait for DB connection
+    const client = await pool.connect(); // Run query
+
+    let x = req.query.xrot;
+    let z = req.query.zrot;
+
+    const SQL_query = {
+        text: "UPDATE rotation set xrotation = "+x+", zrotation = "+z
+    };
+
+
+    await client.query(SQL_query);
+
+    client.release();
+    res.send('ok');
+    // Release connection
+    
+    
+
+    }catch (err) {  
+
+// Report errors console.error(err); res.send("Error " + err);
+} });
+
+// Route /getrotateion
+router.get("/getrotation", async (req, res) => { try {
+    // Wait for DB connection
+const client = await pool.connect(); // Run query
+
+const result = await client.query("SELECT * FROM rotation");
+
+    // Respond with DB results as json
+if (result) res.json({dbdata: result.rows}); 
+else res.json({dbdata: null});
+    // Release connection
+client.release();
+secclient.release();
+} catch (err) {
+
+// Report errors console.error(err); res.send("Error " + err);
+} });
 
 module.exports = router;

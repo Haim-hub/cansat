@@ -92,7 +92,6 @@ function xhrLoad() {
   let dbdata = JSON.parse(this.responseText).dbdata;
   for(let index = myLineChart.data.labels[myLineChart.data.labels.length-1]; index <= dbdata.length; index++) 
   {
-    console.log(index);
     addData(myLineChart, dbdata[index].id, dbdata[index].temp, dbdata[index].pressure, dbdata[index].alt);
   }
 }
@@ -137,6 +136,8 @@ function hisswitch()
     }
 }
  
+
+
 /* 3D stuff */
 function init()
 {
@@ -170,21 +171,32 @@ renderer.setSize( document.getElementById("threedcontainer").getBoundingClientRe
 container.appendChild( renderer.domElement );
 }
 
-function animate()
+function animate(xr, zr)
 {
   requestAnimationFrame( animate );
-  autoRotate();
+  autoRotate(xr, zr);
   renderer.render( scene, camera );
 }
 
-function autoRotate()
+function autoRotate(xr, zr)
 {
-  box.rotation.x += 0.001;
-	box.rotation.z += 0.001;
+  box.rotation.x = xr;
+	box.rotation.z = zr;
+}
+
+
+function xhrthreeLoad() {
+  let dbdata = JSON.parse(this.responseText).dbdata;
+  animate(dbdata[1].xrotation, dbdata[1].zrotation);
 }
 
 window.onload = function() 
 {
   init();
-  animate();
+  setInterval(function(){ 
+    xhr = new XMLHttpRequest(); 
+    xhr.addEventListener("threeLoad", xhrthreeLoad); 
+    xhr.open("GET", "data/getrotation"); 
+    xhr.send();
+  }, 200);
 }

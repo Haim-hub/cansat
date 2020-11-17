@@ -6,3 +6,6 @@ CREATE TABLE cansat (
   alt           REAL,
   date_time     timestamp default current_timestamp
 );
+
+DECLARE @@xrotation AS INT;
+

@@ -176,3 +176,6 @@ function autoRotate()
   box.rotation.x += 0.001;
 	box.rotation.z += 0.001;
 }
+
+init();
+animate();

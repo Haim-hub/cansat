@@ -137,7 +137,9 @@ function hisswitch()
 }
  
 
+import * as THREE from '../build/three.module.js';
 
+import { OBJLoader } from './jsm/loaders/OBJLoader.js';
 /* 3D stuff */
 function init()
 {

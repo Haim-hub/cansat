@@ -175,7 +175,7 @@ function animate()
 {
   let dbdata = JSON.parse(this.responseText).dbdata;
   requestAnimationFrame( animate );
-  autoRotate(dbdata[0].xrotation, dbdata[0].zrotation));
+  autoRotate(dbdata[0].xrotation, dbdata[0].zrotation);
   renderer.render( scene, camera );
 }
 

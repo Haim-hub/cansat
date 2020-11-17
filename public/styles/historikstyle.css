@@ -79,11 +79,11 @@
 
 }
 .wrapper > div{
-    background: repeating-linear-gradient(#333, #333 25%, rgb(238, 238, 238) 25.1%, rgb(238, 238, 238) 100%);
     padding: 1em;
 }
 
 .box1{
+  background: repeating-linear-gradient(#333, #333 61px, rgb(238, 238, 238) 62px, rgb(238, 238, 238) 100%);
     /* align-self: start; */
     border-radius: 1em;
     grid-column: 1;
@@ -91,6 +91,7 @@
 }
 
 .box2{
+  background: repeating-linear-gradient(#333, #333 61px, rgb(238, 238, 238) 62px, rgb(238, 238, 238) 100%);
     /* align-self: end; */
     border-radius: 1em;
     grid-column: 2;

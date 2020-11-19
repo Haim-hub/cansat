@@ -153,7 +153,7 @@ router.get("/getindex", async (req, res) => { try {
     // Wait for DB connection
 const client = await pool.connect(); // Run query
 
-const result = await client.query("SELECT (num, date_time) FROM cansat WHERE id=1");
+const result = await client.query("SELECT num, date_time FROM cansat WHERE id=1");
 
     // Respond with DB results as json
 if (result) res.json({dbdata: result.rows}); 

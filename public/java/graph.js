@@ -5,13 +5,6 @@ function formSubmit() {
             window.document.location = './index.html?num=1'; 
 }
 
-function functionB() 
-{
-  xhr = new XMLHttpRequest(); 
-  xhr.addEventListener("load", xhrLoad); 
-  xhr.open("GET", "data/getdata"); 
-  xhr.send();
-}
 
 function keepItLive()
 {
@@ -23,7 +16,7 @@ function keepItLive()
       xhr.addEventListener("load", xhrLoad); 
       xhr.open("GET", "data/getdata"); 
       xhr.send();
-      functionB;
+      functionA;
     }, 3000);
   }
 }

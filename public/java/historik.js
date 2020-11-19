@@ -71,6 +71,14 @@ function addData(chart, label, temp, tryk, alt) {
     chart.update();
 }
 
+function removeData(chart) {
+  chart.data.labels.shift();
+  chart.data.datasets.forEach((dataset) => {
+      dataset.data.shift();
+  });
+  chart.update();
+}
+
 function xhrLoad() {
     let dbdata = JSON.parse(this.responseText).dbdata;
     for(let index = myLineChart.data.labels[myLineChart.data.labels.length-1]; index <= dbdata.length; index++) 

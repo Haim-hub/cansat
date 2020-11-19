@@ -2,11 +2,7 @@ document.querySelector("button").addEventListener("click", formSubmit);
 
 
 function formSubmit() {
-            window.document.location = './index.html?num=1';
-            setInterval(function(){ 
-              //functionA;
-              functionB;
-            }, 200);  
+            window.document.location = './index.html?num=1'; 
 }
 
 function functionB() 

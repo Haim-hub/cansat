@@ -16,7 +16,7 @@ function keepItLive()
       xhr.addEventListener("load", xhrLoad); 
       xhr.open("GET", "data/getdata"); 
       xhr.send();
-      functionA;
+      functionA();
     }, 3000);
   }
 }

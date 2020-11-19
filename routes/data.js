@@ -174,8 +174,7 @@ router.get("/getmaaling", async (req, res) => { try {
     // Wait for DB connection
 const client = await pool.connect(); // Run query
 
-let index = 10;
-//console.log(document.location.search.replace(/^.*?\=/,''));
+let index = req.query.index;
 const result = await client.query("SELECT * FROM cansat WHERE num = "+index);
 
     // Respond with DB results as json

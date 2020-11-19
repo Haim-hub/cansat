@@ -72,8 +72,10 @@ function addData(chart, label, temp, tryk, alt) {
 }
 
 function removeData(chart) {
-  chart.data.labels.shift(14);
-  dataset.data.shift(14);
+  chart.data.labels.shift();
+  chart.data.datasets.forEach((dataset) => {
+      dataset.data.shift();
+  });
   chart.update();
 }
 

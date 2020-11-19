@@ -199,10 +199,10 @@ function autoRotate(xr, zr)
   animate(dbdata[0].xrotation, dbdata[0].zrotation);
 } */
 
-window.onload = function() 
+/* window.onload = function() 
 {
   init();
-}
+} */
 
 /* function functionA()
 {

@@ -118,7 +118,7 @@ function insertIndex()
   var table = document.getElementById("indextable");
   let dbdata = JSON.parse(this.responseText).dbdata;
 
-  for(let k = 1; k<=dbdata.length; k++)
+  for(let k = 0; k<=dbdata.length-1; k++)
   {
     var row = table.insertRow(k);
 

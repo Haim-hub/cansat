@@ -120,15 +120,13 @@ function insertIndex()
 
   for(let k = 0; k<=dbdata.length-1; k++)
   {
-    var row = table.insertRow(k);
+    var row = table.insertRow(k+1);
 
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
 
-console.log(dbdata[k].num);
-
-    /* cell1.innerHTML = dbdata[k].num;
-    cell2.innerHTML = dbdata[k].date_time;  */
+    cell1.innerHTML = dbdata[k].num;
+    cell2.innerHTML = dbdata[k].date_time; 
   }
 
 }

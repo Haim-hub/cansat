@@ -174,7 +174,7 @@ container.appendChild( renderer.domElement );
 
 function animate()
 {
-  let dbdati = JSON.parse(this.responseText).dbdata;
+  let dbdati = JSON.parse(this.responseText).dbdati;
   requestAnimationFrame( animate );
   autoRotate(dbdati[0].xrotation, dbdati[0].zrotation);
   renderer.render( scene, camera );

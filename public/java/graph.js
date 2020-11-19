@@ -202,7 +202,7 @@ function autoRotate(xr, zr)
   
 } */
 
-/function functionA()
+function functionA()
 {
   xhr = new XMLHttpRequest(); 
   xhr.addEventListener("load", animate); 

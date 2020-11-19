@@ -1,7 +1,21 @@
 document.querySelector("button").addEventListener("click", formSubmit);
 
 
+function formSubmit() {
+            window.document.location = './index.html?num=1';
+            setInterval(function(){ 
+              functionA;
+              functionB;
+            }, 200);  
+}
 
+function functionB() 
+{
+  xhr = new XMLHttpRequest(); 
+  xhr.addEventListener("load", xhrLoad); 
+  xhr.open("GET", "data/getdata"); 
+  xhr.send();
+}
 
 function keepItLive()
 {
@@ -185,18 +199,15 @@ function autoRotate(xr, zr)
   animate(dbdata[0].xrotation, dbdata[0].zrotation);
 } */
 
-function formSubmit() {
-  window.document.location = './index.html?num=1';
-  setInterval(function(){ 
-    xhr = new XMLHttpRequest(); 
-    xhr.addEventListener("load", xhrLoad); 
-    xhr.open("GET", "data/getdata"); 
-    xhr.send();
+window.onload = function() 
+{
+  init();
+}
 
-    init();
-    xhr = new XMLHttpRequest(); 
-    xhr.addEventListener("load", animate); 
-    xhr.open("GET", "data/getrotation"); 
-    xhr.send();
-  }, 3000);  
+function functionA()
+{
+  xhr = new XMLHttpRequest(); 
+  xhr.addEventListener("load", animate); 
+  xhr.open("GET", "data/getrotation"); 
+  xhr.send();
 }

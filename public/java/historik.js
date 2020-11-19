@@ -118,13 +118,15 @@ function insertIndex()
   var table = document.getElementById("indextable");
   let dbdata = JSON.parse(this.responseText).dbdata;
 
-  console.log(dbdata.length);
+  for(let k = 1; k<=dbdata.length; k++)
+  {
+    var row = table.insertRow(k);
 
-  var row = table.insertRow(1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
 
-  var cell1 = row.insertCell(0);
-  var cell2 = row.insertCell(1);
+    cell1.innerHTML = dbdata[k].num;
+    cell2.innerHTML = dbdata[k].date_time; 
+  }
 
-  cell1.innerHTML = "NEW CELL1";
-  cell2.innerHTML = "NEW CELL2";  
 }

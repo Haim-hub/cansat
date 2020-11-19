@@ -136,8 +136,8 @@ const client = await pool.connect(); // Run query
 const result = await client.query("SELECT * FROM rotation");
 
     // Respond with DB results as json
-if (result) res.json({dbdati: result.rows}); 
-else res.json({dbdati: null});
+if (result) res.json({dbdata: result.rows}); 
+else res.json({dbdata: null});
     // Release connection
 client.release();
 secclient.release();

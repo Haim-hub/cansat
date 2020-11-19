@@ -178,9 +178,9 @@ container.appendChild( renderer.domElement );
 
 function animate()
 {
-  let dbdati = JSON.parse(this.responseText).dbdati;
+  let dbdata = JSON.parse(this.responseText).dbdata;
   requestAnimationFrame( animate );
-  autoRotate(dbdati[0].xrotation, dbdati[0].zrotation);
+  autoRotate(dbdata[0].xrotation, dbdata[0].zrotation);
   renderer.render( scene, camera );
 }
 
@@ -190,17 +190,6 @@ function autoRotate(xr, zr)
 	box.rotation.z = zr;
 }
 
-
-/* function xhrthreeLoad() {
-  let dbdata = JSON.parse(this.responseText).dbdata;
-  console.log(dbdata[0].xrotation);
-  animate(dbdata[0].xrotation, dbdata[0].zrotation);
-} */
-
-/* window.onload = function() 
-{
-  
-} */
 
 function functionA()
 {

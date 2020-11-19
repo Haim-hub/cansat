@@ -1,20 +1,7 @@
 document.querySelector("button").addEventListener("click", formSubmit);
 
 
-function formSubmit() {
-            window.document.location = './index.html?num=1';
-            setInterval(function(){ 
-              xhr = new XMLHttpRequest(); 
-              xhr.addEventListener("load", xhrLoad); 
-              xhr.open("GET", "data/getdata"); 
-              xhr.send();
 
-              xhr = new XMLHttpRequest(); 
-              xhr.addEventListener("load", animate); 
-              xhr.open("GET", "data/getrotation"); 
-              xhr.send();
-            }, 200);  
-}
 
 function keepItLive()
 {
@@ -198,7 +185,18 @@ function autoRotate(xr, zr)
   animate(dbdata[0].xrotation, dbdata[0].zrotation);
 } */
 
-window.onload = function() 
-{
-  init(); 
+function formSubmit() {
+  window.document.location = './index.html?num=1';
+  setInterval(function(){ 
+    xhr = new XMLHttpRequest(); 
+    xhr.addEventListener("load", xhrLoad); 
+    xhr.open("GET", "data/getdata"); 
+    xhr.send();
+
+    init();
+    xhr = new XMLHttpRequest(); 
+    xhr.addEventListener("load", animate); 
+    xhr.open("GET", "data/getrotation"); 
+    xhr.send();
+  }, 3000);  
 }

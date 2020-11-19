@@ -4,7 +4,7 @@ document.querySelector("button").addEventListener("click", formSubmit);
 function formSubmit() {
             window.document.location = './index.html?num=1';
             setInterval(function(){ 
-              functionA;
+              //functionA;
               functionB;
             }, 200);  
 }
@@ -204,10 +204,10 @@ window.onload = function()
   init();
 }
 
-function functionA()
+/* function functionA()
 {
   xhr = new XMLHttpRequest(); 
   xhr.addEventListener("load", animate); 
   xhr.open("GET", "data/getrotation"); 
   xhr.send();
-}
+} */

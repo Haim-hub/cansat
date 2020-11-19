@@ -9,10 +9,10 @@ function formSubmit() {
               xhr.open("GET", "data/getdata"); 
               xhr.send();
 
-              xhi = new XMLHttpRequest(); 
-              xhi.addEventListener("load", animate); 
-              xhi.open("GET", "data/getrotation"); 
-              xhi.send();
+              xhr = new XMLHttpRequest(); 
+              xhr.addEventListener("load", animate); 
+              xhr.open("GET", "data/getrotation"); 
+              xhr.send();
             }, 200);  
 }
 
@@ -190,6 +190,13 @@ function autoRotate(xr, zr)
   box.rotation.x = xr;
 	box.rotation.z = zr;
 }
+
+
+/* function xhrthreeLoad() {
+  let dbdata = JSON.parse(this.responseText).dbdata;
+  console.log(dbdata[0].xrotation);
+  animate(dbdata[0].xrotation, dbdata[0].zrotation);
+} */
 
 window.onload = function() 
 {

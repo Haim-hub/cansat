@@ -72,11 +72,15 @@ function addData(chart, label, temp, tryk, alt) {
 }
 
 function removeData(chart) {
-  chart.data.labels.pop();
-  chart.data.datasets.forEach((dataset) => {
-      dataset.data.pop();
-  });
-  chart.update();
+  while(myLineChart.data.labels[myLineChart.data.labels.length-1] > 0)
+  {
+    chart.data.labels.pop();
+    chart.data.datasets.forEach((dataset) => {
+        dataset.data.pop();
+    });
+    chart.update();
+  }
+
 }
 
 function xhrLoad() {

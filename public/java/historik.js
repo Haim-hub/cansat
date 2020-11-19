@@ -104,3 +104,27 @@ function changeAxis()
 
   myLineChart.update();
 }
+
+function indexLoad()
+{
+  xhr = new XMLHttpRequest(); 
+  xhr.addEventListener("load", insertIndex); 
+  xhr.open("GET", "data/getindex"); 
+  xhr.send();
+}
+
+function insertIndex()
+{
+  var table = document.getElementById("indextable");
+  let dbdata = JSON.parse(this.responseText).dbdata;
+
+  console.log(dbdata.length);
+
+  var row = table.insertRow(1);
+
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+
+  cell1.innerHTML = "NEW CELL1";
+  cell2.innerHTML = "NEW CELL2";  
+}

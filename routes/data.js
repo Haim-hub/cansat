@@ -146,4 +146,29 @@ secclient.release();
 // Report errors console.error(err); res.send("Error " + err);
 } });
 
+
+//getindex
+// Route
+router.get("/getindex", async (req, res) => { try {
+    // Wait for DB connection
+const client = await pool.connect(); // Run query
+
+const result = await client.query("SELECT (num, date_time) FROM cansat WHERE id=1");
+
+    // Respond with DB results as json
+if (result) res.json({dbdata: result.rows}); 
+else res.json({dbdata: null});
+    // Release connection
+client.release();
+secclient.release();
+} catch (err) {
+
+// Report errors console.error(err); res.send("Error " + err);
+} });
+
+
+
+//getmaaling
+
+
 module.exports = router;

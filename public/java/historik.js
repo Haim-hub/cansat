@@ -4,7 +4,7 @@ document.querySelector("button").addEventListener("click", formSubmit);
 function formSubmit() {
               xhr = new XMLHttpRequest(); 
               xhr.addEventListener("load", xhrLoad); 
-              xhr.open("GET", "data/getdata"); 
+              xhr.open("GET", "data/getmaaling?index="+document.getElementById("choosenindex").value); 
               xhr.send();
 }
 
@@ -12,7 +12,7 @@ function liveswitch()
 {
     if(document.location.search.replace(/^.*?\=/,''))
     {
-        window.document.location = './index.html?num=' + document.location.search.replace(/^.*?\=/,'');
+        window.document.location = './index.html?num=1';
     }
     else
     {

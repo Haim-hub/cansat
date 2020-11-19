@@ -169,6 +169,24 @@ secclient.release();
 
 
 //getmaaling
+// Route
+router.get("/getmaaling", async (req, res) => { try {
+    // Wait for DB connection
+const client = await pool.connect(); // Run query
+
+let index = query.index;
+const result = await client.query("SELECT * FROM cansat WHERE num = "+index);
+
+    // Respond with DB results as json
+if (result) res.json({dbdata: result.rows}); 
+else res.json({dbdata: null});
+    // Release connection
+client.release();
+secclient.release();
+} catch (err) {
+
+// Report errors console.error(err); res.send("Error " + err);
+} });
 
 
 module.exports = router;

@@ -17,7 +17,7 @@ function keepItLive()
       xhr.open("GET", "data/getdata"); 
       xhr.send();
       functionA();
-    }, 3000);
+    }, 200);
   }
 }
 

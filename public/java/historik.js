@@ -130,3 +130,8 @@ function insertIndex()
   }
 
 }
+
+window.onload = function()
+{
+  indexLoad();
+}

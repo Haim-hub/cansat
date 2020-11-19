@@ -193,6 +193,7 @@ function autoRotate(xr, zr)
 
 function functionA()
 {
+  console.log("ree")
   xhr = new XMLHttpRequest(); 
   xhr.addEventListener("load", animate); 
   xhr.open("GET", "data/getrotation"); 

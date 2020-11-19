@@ -15,6 +15,7 @@ function functionB()
 
 function keepItLive()
 {
+  init();
   if(document.location.search.replace(/^.*?\=/,'') >= 1)
   {
     setInterval(function(){ 
@@ -22,6 +23,7 @@ function keepItLive()
       xhr.addEventListener("load", xhrLoad); 
       xhr.open("GET", "data/getdata"); 
       xhr.send();
+      functionB;
     }, 3000);
   }
 }
@@ -197,13 +199,13 @@ function autoRotate(xr, zr)
 
 /* window.onload = function() 
 {
-  init();
+  
 } */
 
-/* function functionA()
+/function functionA()
 {
   xhr = new XMLHttpRequest(); 
   xhr.addEventListener("load", animate); 
   xhr.open("GET", "data/getrotation"); 
   xhr.send();
-} */
+}

@@ -4,7 +4,7 @@ document.querySelector("button").addEventListener("click", formSubmit);
 function formSubmit() {
               xhr = new XMLHttpRequest(); 
               xhr.addEventListener("load", xhrLoad); 
-              xhr.open("GET", "data/getmaaling?index="+10); 
+              xhr.open("GET", "./data/getmaaling?index="+10); 
               xhr.send();
 }
 

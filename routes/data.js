@@ -167,7 +167,6 @@ secclient.release();
 } });
 
 
-
 //getmaaling
 // Route
 router.get("/getmaaling", async (req, res) => { try {
